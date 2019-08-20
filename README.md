@@ -40,12 +40,28 @@ build/reports/tests/test/index.html
 
 
 ```http
-POST /echo?data=hello
+GET /echo?data=hello
 ```
 
 | Parameter | Type | Description |
 | :--- | :--- | :--- |
-| `data` | `string` | **Required**. Your Gophish API key |
+| `data` | `string` | **Required**. The Data to be echoed |
+
+
+#### Response
+
+format:
+
+```javascript
+{
+  "count" : long,
+  "content" : string
+}
+```
+
+The `count` attribute contains the current number of calls to the echo endpoint
+
+The `content` attribute contains the data being echoed back
 
 
 

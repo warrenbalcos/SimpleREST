@@ -15,7 +15,7 @@ public class EchoController {
 
 	@RequestMapping(path = "/echo")
 	public EchoResponse echo(@RequestParam(value = "data") String data) {
-		return new EchoResponse(counter.getAndIncrement(), data);
+		return new EchoResponse(counter.incrementAndGet(), data);
 	}
 
 }

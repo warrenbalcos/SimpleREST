@@ -1,4 +1,4 @@
-package com.wfdb.restservice.controller;
+package com.wfdb.restservice.response;
 
 public class EchoResponse {
 

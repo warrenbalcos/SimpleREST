@@ -60,6 +60,43 @@ The `count` attribute contains the current number of calls to the echo endpoint
 
 The `content` attribute contains the data being echoed back
 
+### Math APIs
+
+```http
+GET /add?first=<number>&second=<number>
+
+GET /subtract?first=<number>&second=<number>
+
+GET /multiply?first=<number>&second=<number>
+
+GET /divide?first=<number>&second=<number>
+```
+
+| Parameter | Type | Description |
+| :--- | :--- | :--- |
+| `first` | `float` | **Required**. the first number |
+| `second` | `float` | **Required**. the second number |
+
+
+response:
+
+```javascript
+{
+	id: 1,
+	first: 1.0,
+	second: 2.0,
+	result: 3.0
+}
+```
+
+The `id` attribute contains a unique operation id
+
+The `first` attribute contains the first number for the math operation
+
+The `second` attribute contains the second number for the math operation
+
+The `result` attribute contains the result of the math operation
+
 
 ### Author
 

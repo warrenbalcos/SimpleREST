@@ -36,8 +36,7 @@ Test results can be found here
 
 build/reports/tests/test/index.html
 
-### API Specs
-
+### Echo API
 
 ```http
 GET /echo?data=hello
@@ -48,9 +47,7 @@ GET /echo?data=hello
 | `data` | `string` | **Required**. The Data to be echoed |
 
 
-#### Response
-
-format:
+response:
 
 ```javascript
 {
@@ -64,14 +61,12 @@ The `count` attribute contains the current number of calls to the echo endpoint
 The `content` attribute contains the data being echoed back
 
 
+### Author
 
-### Reference Documentation
-For further reference, please consider the following sections:
+* **Warren Balcos** - *Initial work* - [warrenbalcos](https://github.com/warrenbalcos)
 
-* [Official Gradle documentation](https://docs.gradle.org)
+### License
 
-### Additional Links
-These additional references should also help you:
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
 
-* [Gradle Build Scans – insights for your project's build](https://scans.gradle.com#gradle)
 

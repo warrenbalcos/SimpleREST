@@ -1,13 +1,19 @@
 package com.wfdb.restservice;
 
+import static org.junit.Assert.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import java.util.List;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import com.wfdb.restservice.controller.EchoController;
 import com.wfdb.restservice.controller.MathOperationController;
+import com.wfdb.restservice.controller.TranslationController;
 import com.wfdb.restservice.response.EchoResponse;
+import com.wfdb.restservice.response.LocaleRepoResponse;
+import com.wfdb.restservice.response.LocalesResponse;
 import com.wfdb.restservice.response.MathOperationResponse;
 
 @SpringBootTest
@@ -48,4 +54,19 @@ class SimpleRestApplicationTests {
 		assertEquals(5, response.getResult());
 	}
 
+	@Test
+	void languagesApiTest() {
+		TranslationController controller = new TranslationController();
+		List<LocalesResponse> availableLanguages = controller.getAvailableLanguages();
+		assertTrue(!availableLanguages.isEmpty());
+	}
+
+	@Test
+	void translationsApiTest() {
+		TranslationController controller = new TranslationController();
+		LocaleRepoResponse translations = controller.getTranslations("zh", "cn");
+		assertEquals("zh", translations.getLanguage());
+		assertEquals("cn", translations.getRegion());
+		assertTrue(translations.getEntries().containsKey("hello_world_label"));
+	}
 }

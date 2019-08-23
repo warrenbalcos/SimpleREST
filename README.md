@@ -98,6 +98,76 @@ The `second` attribute contains the second number for the math operation
 The `result` attribute contains the result of the math operation
 
 
+### Translation APIs
+
+
+#### Get the list of available translations
+
+```http
+GET /translations
+```
+
+response
+
+```javascript
+[
+	{
+		name: "English - US",
+		language: "en",
+		region: "us"
+	},
+	{
+		name: "Hindi",
+		language: "hi",
+		region: "hi"
+	},
+	{
+		name: "Chinese - China",
+		language: "zh",
+		region: "cn"
+	}
+]
+```
+
+The `name` attribute contains the name of the locale details
+
+The `language` attribute contains the language code
+
+The `region` attribute contains the region code  
+
+
+#### Get the specific translation for a given language and region
+
+
+```http
+GET /translation?language=<string>&region=<string>
+```
+
+Response:
+
+```javascript
+{
+	name: "English - US",
+	language: "en",
+	region: "us",
+	entries: {
+		hello_world_label: "Hello world!"
+	}
+}
+```
+
+The `name` attribute contains the name of the locale details
+
+The `language` attribute contains the language code
+
+The `region` attribute contains the region code  
+
+The `entries` attribute contains the map of all the key value translations for the given translation  
+
+```
+*note: if the region is unavailable, the API will return a translation with an available language requested with a different region
+```
+
 ### Author
 
 * **Warren Balcos** - *Initial work* - [warrenbalcos](https://github.com/warrenbalcos)
